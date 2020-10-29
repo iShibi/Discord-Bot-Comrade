@@ -1,0 +1,16 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Shubham Parihar",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "mongoose": "^5.10.11"
+  }
+}
