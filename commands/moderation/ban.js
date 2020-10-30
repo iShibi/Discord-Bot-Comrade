@@ -1,6 +1,6 @@
 module.exports = (message) => {
     if(message.member.hasPermission('ADMINISTRATOR')) {
-        let memberToBan = message.mentions.member.first();
+        let memberToBan = message.mentions.members.first();
         if(memberToBan) {
             if(memberToBan.bannable) {
                 memberToBan.ban();

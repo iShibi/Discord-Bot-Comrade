@@ -3,7 +3,7 @@ module.exports = (message) => {
         let memberToSoftban = message.mentions.members.first();
         if(memberToSoftban) {
             if(memberToSoftban.bannable) {
-                let memberManager = memberToSoftban.members;
+                let memberManager = memberToSoftban.guild.members;
                 memberManager.ban(memberToSoftban.user.id);
                 memberManager.unban(memberToSoftban.user.id);
             } else {
