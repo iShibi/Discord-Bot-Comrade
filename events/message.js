@@ -11,10 +11,11 @@ const createInvite = require("../commands/misc/createInvite");
 const setParent = require("../commands/staff/setParent");
 const tagHub = require("../commands/custom/tagHub");
 const bulkDelete = require("../commands/moderation/bulkDelete");
+const userInfo = require("../commands/misc/userInfo");
 
 module.exports = (bot) => {
     bot.on('message', (message) => {
-
+        
         // custom cmds
         if(message.content.startsWith('?')) {
             tagHub(message);
@@ -31,6 +32,10 @@ module.exports = (bot) => {
         // misc cmds
         if(message.content.startsWith('!invite')) {
             createInvite(message);
+        }
+
+        if(message.content.startsWith('!me')) {
+            userInfo(message);
         }
 
         // moderation cmds

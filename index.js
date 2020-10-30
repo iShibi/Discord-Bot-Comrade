@@ -22,7 +22,6 @@ bot.login(config.BOT_TOKEN);
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag}`);
     bot.user.setPresence( { status: 'online', activity: { name: 'your cmds', type: 'LISTENING' }  } )
-    .then(presence => console.log(presence))
     .catch(err => console.log(err));
 });
 
