@@ -1,15 +1,13 @@
 const { Client } = require('discord.js');
 const mongoose = require('mongoose');
 
-const config = require('./config.json');
-
 const guildMemberAdd = require('./events/guildMemberAdd');
 const guildMemberRemove = require('./events/guildMemberRemove');
 const message = require('./events/message');
 
 
 // mongoDB init
-let uri = config.MONGODB_URI || process.env.MONGODB_URI;
+let uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(res => console.log('Connected to database.'))
     .catch(err => console.log(err));
@@ -17,9 +15,8 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // bot init
 const bot = new Client();
-let token = config.BOT_TOKEN || process.env.BOT_TOKEN;
+let token = process.env.TOKEN;
 bot.login(token);
-
 
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag}`);
