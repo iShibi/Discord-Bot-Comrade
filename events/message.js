@@ -12,51 +12,57 @@ const setParent = require("../commands/staff/setParent");
 const tagHub = require("../commands/custom/tagHub");
 const bulkDelete = require("../commands/moderation/bulkDelete");
 const userInfo = require("../commands/misc/userInfo");
+const musicPlayer = require("../commands/music/musicPlayer");
 
 module.exports = (bot) => {
     bot.on('message', (message) => {
-        
+
         // custom cmds
-        if(message.content.startsWith('?')) {
+        if (message.content.startsWith('?')) {
             tagHub(message);
         }
-        
+
         // dev cmds
-        if(message.content.startsWith('!joinSim')) {
+        if (message.content.startsWith('!joinSim')) {
             memberJoinSimulation(message);
         }
-        if(message.content.startsWith('!leaveSim')) {
+        if (message.content.startsWith('!leaveSim')) {
             memberLeaveSimulation(message);
         }
 
         // misc cmds
-        if(message.content.startsWith('!invite')) {
+        if (message.content.startsWith('!invite')) {
             createInvite(message);
         }
 
-        if(message.content.startsWith('!me')) {
+        if (message.content.startsWith('!me')) {
             userInfo(message);
         }
 
         // moderation cmds
-        if(message.content.startsWith('!kick')) {
+        if (message.content.startsWith('!kick')) {
             kick(message);
         }
 
-        if(message.content.startsWith('!ban')) {
+        if (message.content.startsWith('!ban')) {
             ban(message);
         }
 
-        if(message.content.startsWith('!softban')) {
+        if (message.content.startsWith('!softban')) {
             softban(message);
         }
 
-        if(message.content.startsWith('!bulkDelete')) {
+        if (message.content.startsWith('!bulkDelete')) {
             bulkDelete(message);
         }
 
+        // music cmds
+        if (message.content.startsWith('!music')) {
+            musicPlayer(message);
+        }
+
         // staff cmds
-        if(message.content.startsWith('!setParent')) {
+        if (message.content.startsWith('!setParent')) {
             setParent(message);
         }
     });
